@@ -31,22 +31,25 @@ Model başarı oranları test verisi üzerinden değerlendirilmiştir.
 - **Test Doğruluğu (Accuracy):** ~0.82  
 - **Ek metrikler:** Karışıklık Matrisi, Precision, Recall, F1 Skoru
 
-Yorum:
+Yorum:  
 Modelin sınıflar arası dengeli bir tahmin performansı sergilediği gözlemlenmiştir. Hiperparametre optimizasyonu sonucunda modelin doğruluk oranı artırılmıştır. Özelliklerin hedef değişken ile ilişkisi analiz edilmiştir.
 
 ---
 
 ## Ekler
 
-Bu proje kapsamında aşağıdaki gibi ek geliştirme fikirleri önerilmiştir:
+Bu proje kapsamında aşağıdaki gibi ek geliştirme çalışmaları yapılmıştır:
+
+- `ui/` klasörü içerisinde yer alan `app.py` dosyası ile **Streamlit arayüzü** geliştirilmiştir.
+- Bu arayüz sayesinde kullanıcı, sipariş bilgilerini girerek modelin tahminine gerçek zamanlı olarak ulaşabilmektedir.
+
+Ek olarak aşağıdaki fikirler ilerleyen geliştirme adımları için önerilmiştir:
 
 - Random Forest ve XGBoost gibi topluluk modelleri ile doğruluk artırılabilir
 - SMOTE gibi veri dengeleme yöntemleri uygulanabilir
 - Özellik önem sıralaması görselleştirilebilir
-- Streamlit veya Flask kullanılarak web arayüzü ile model dağıtımı yapılabilir (deployment)
-- Bonus olarak k-means gibi gözetimsiz öğrenme yöntemleriyle müşteri segmentasyonu yapılabilir
-
-Not: Streamlit arayüzü için ayrı bir `UI` klasörü eklenebilir.
+- Flask veya FastAPI ile alternatif arayüz yöntemleri denenebilir
+- Gözetimsiz öğrenme (ör. k-means) ile müşteri segmentasyonu yapılabilir
 
 ---
 
@@ -55,9 +58,9 @@ Not: Streamlit arayüzü için ayrı bir `UI` klasörü eklenebilir.
 Bu proje, sınıflandırma problemleri üzerine güçlü bir başlangıç oluşturmakta ve model performansını artırmak için çeşitli yollar sunmaktadır. Gelecek çalışmalar kapsamında:
 
 - Model farklı veri kümeleri ile test edilebilir
-- Model deploy edilerek son kullanıcıya sunulabilir
-- Gerçek zamanlı veri toplama mekanizmaları entegre edilebilir
-- Arayüz tasarımı geliştirilebilir
+- Geliştirilen arayüz daha kullanıcı dostu hale getirilebilir
+- Model, dinamik verilerle çalışabilecek şekilde genişletilebilir
+- Proje bir web uygulamasına dönüştürülerek son kullanıcıya açılabilir
 
 Bu proje, kariyer yolculuğunuzda makine öğrenmesi temellerini göstermek ve ileride geliştireceğiniz projeler için bir temel sunmak amacıyla hazırlanmıştır.
 
@@ -65,7 +68,7 @@ Bu proje, kariyer yolculuğunuzda makine öğrenmesi temellerini göstermek ve i
 
 ## Linkler
 
-Aşağıda projeye ait Kaggle bağlantıları yer almaktadır:
+Proje ile ilgili bağlantılar aşağıda yer almaktadır:
 
-- Notebook: [https://www.kaggle.com/code/gizemetinalar/notebook56725a62e7](https://www.kaggle.com/code/gizemetinalar/notebook56725a62e7)  
-- Veri Seti: [https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
+- Kaggle Notebook: [https://www.kaggle.com/code/gizemetinalar/notebook56725a62e7](https://www.kaggle.com/code/gizemetinalar/notebook56725a62e7)  
+- Kullanılan Veri Seti: [https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
