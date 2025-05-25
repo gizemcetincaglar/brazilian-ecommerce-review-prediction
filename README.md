@@ -6,6 +6,11 @@ This project aims to predict whether a customer's product review will be 5 stars
 
 ---
 
+## Bağlantılar
+.(https://www.kaggle.com/code/gizemetinalar/notebook56725a62e7).
+.(https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce).
+
+
 ## 🧠 Problem Statement
 
 Can we predict whether a product review will be 5 stars based on order, product, and customer data?
@@ -58,4 +63,5 @@ All were joined on `order_id`.
 ```python
 max_depth=10  
 min_samples_split=5  
-criterion='entropy'  
+criterion='entropy'
+
