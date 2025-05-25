@@ -1,68 +1,71 @@
-# Brezilya E-Ticaret 5 Yıldızlı Değerlendirme Tahmini
+# brazilian-ecommerce-review-prediction
 
-## Proje Açıklaması
-
-Bu projede, bir müşterinin yaptığı ürün değerlendirmesinin 5 yıldız olup olmayacağını gözetimli öğrenme yöntemleriyle tahmin etmeyi amaçladım.  
-Bu amaç doğrultusunda Olist tarafından sağlanan Brezilya e-ticaret veri seti kullanıldı. Veri seti siparişler, ürünler, müşteriler ve değerlendirmeleri içermektedir.
+Bu repo, Global AI Hub bootcamplerinde template olarak kullanmanız amacıyla tasarlanmıştır. Bu proje, Olist tarafından sağlanan Brezilya e-ticaret veri seti ile müşterilerin ürün değerlendirmelerinin 5 yıldız olup olmayacağını tahmin etmeye yönelik bir sınıflandırma (classification) çalışmasıdır.
 
 ---
 
-## Bağlantılar
+## Giriş
 
-- Kaggle Notebook: https://www.kaggle.com/code/gizemetinalar/notebook56725a62e7  
-- Kaggle Olist Veri Seti: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+Bu projede, Kaggle üzerinde yayınlanan [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) veri seti kullanılmıştır.  
+Hedefimiz, müşterilerin bir siparişi 5 yıldızla değerlendirip değerlendirmeyeceğini tahmin etmektir.
 
----
+Çalışma boyunca;
 
-## Problem Tanımı
+- `olist_orders_dataset.csv`
+- `olist_order_reviews_dataset.csv`
+- `olist_order_items_dataset.csv`
+- `olist_products_dataset.csv`
 
-Sipariş, ürün ve müşteri bilgilerinden yola çıkarak bir değerlendirme puanının 5 yıldız olup olmayacağı tahmin edilebilir mi?
+veri dosyaları birleştirilerek analiz için uygun hale getirilmiştir.
 
-- Hedef Değişken: `is_five_star` (eğer `review_score` = 5 ise 1, aksi halde 0)  
-- Problem Türü: İkili sınıflandırma
-
----
-
-## Kullanılan Veri Seti
-
-Aşağıdaki CSV dosyaları `order_id` alanı üzerinden birleştirilerek analizde kullanılmıştır:
-
-- olist_orders_dataset.csv  
-- olist_order_reviews_dataset.csv  
-- olist_order_items_dataset.csv  
-- olist_products_dataset.csv
+Kullanılan algoritmalar:
+- Karar Ağacı (Decision Tree Classifier)
+- GridSearchCV ile hiperparametre optimizasyonu
 
 ---
 
-## Keşifsel Veri Analizi (EDA)
+## Metrikler
 
-- Değerlendirme puanlarının dağılımı incelendi  
-- Hedef değişkendeki (`is_five_star`) sınıf dengesizliği kontrol edildi  
-- Özelliklerle hedef değişken arasındaki ilişkiler analiz edildi
+Model başarı oranları test verisi üzerinden değerlendirilmiştir.
 
----
+- **Test Doğruluğu (Accuracy):** ~0.82  
+- **Ek metrikler:** Karışıklık Matrisi, Precision, Recall, F1 Skoru
 
-## Veri Ön İşleme
-
-- Gereksiz sütunlar kaldırıldı  
-- Eksik veriler temizlendi  
-- Kategorik veriler sayısal verilere dönüştürüldü  
-- Hedef değişken (`is_five_star`) oluşturuldu  
-- Veriler eğitim ve test seti olarak ayrıldı (80/20 oranında)
+Yorum:
+Modelin sınıflar arası dengeli bir tahmin performansı sergilediği gözlemlenmiştir. Hiperparametre optimizasyonu sonucunda modelin doğruluk oranı artırılmıştır. Özelliklerin hedef değişken ile ilişkisi analiz edilmiştir.
 
 ---
 
-## Kullanılan Model
+## Ekler
 
-- Model: Karar Ağacı (Decision Tree Classifier)  
-- Optimizasyon: GridSearchCV (5 katlı çapraz doğrulama)  
-- Değerlendirme Metrikleri: Doğruluk, Karışıklık Matrisi, Precision, Recall, F1 Skoru
+Bu proje kapsamında aşağıdaki gibi ek geliştirme fikirleri önerilmiştir:
+
+- Random Forest ve XGBoost gibi topluluk modelleri ile doğruluk artırılabilir
+- SMOTE gibi veri dengeleme yöntemleri uygulanabilir
+- Özellik önem sıralaması görselleştirilebilir
+- Streamlit veya Flask kullanılarak web arayüzü ile model dağıtımı yapılabilir (deployment)
+- Bonus olarak k-means gibi gözetimsiz öğrenme yöntemleriyle müşteri segmentasyonu yapılabilir
+
+Not: Streamlit arayüzü için ayrı bir `UI` klasörü eklenebilir.
 
 ---
 
-## GridSearchCV ile En İyi Parametreler
+## Sonuç ve Gelecek Çalışmalar
 
-```python
-max_depth = 10  
-min_samples_split = 5  
-criterion = 'entropy'
+Bu proje, sınıflandırma problemleri üzerine güçlü bir başlangıç oluşturmakta ve model performansını artırmak için çeşitli yollar sunmaktadır. Gelecek çalışmalar kapsamında:
+
+- Model farklı veri kümeleri ile test edilebilir
+- Model deploy edilerek son kullanıcıya sunulabilir
+- Gerçek zamanlı veri toplama mekanizmaları entegre edilebilir
+- Arayüz tasarımı geliştirilebilir
+
+Bu proje, kariyer yolculuğunuzda makine öğrenmesi temellerini göstermek ve ileride geliştireceğiniz projeler için bir temel sunmak amacıyla hazırlanmıştır.
+
+---
+
+## Linkler
+
+Aşağıda projeye ait Kaggle bağlantıları yer almaktadır:
+
+- Notebook: [https://www.kaggle.com/code/gizemetinalar/notebook56725a62e7](https://www.kaggle.com/code/gizemetinalar/notebook56725a62e7)  
+- Veri Seti: [https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
