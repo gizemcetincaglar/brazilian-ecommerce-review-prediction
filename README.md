@@ -1,86 +1,68 @@
-# 🛍️ Brazilian E-Commerce Review Prediction
+# Brezilya E-Ticaret 5 Yıldızlı Değerlendirme Tahmini
 
-## 📌 Project Description
+## Proje Açıklaması
 
-This project aims to predict whether a customer's product review will be 5 stars using supervised learning techniques. We use the public dataset provided by [Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce), which includes data about orders, products, customers, and reviews from Brazilian e-commerce.
+Bu projede, bir müşterinin yaptığı ürün değerlendirmesinin 5 yıldız olup olmayacağını gözetimli öğrenme yöntemleriyle tahmin etmeyi amaçladım.  
+Bu amaç doğrultusunda Olist tarafından sağlanan Brezilya e-ticaret veri seti kullanıldı. Veri seti siparişler, ürünler, müşteriler ve değerlendirmeleri içermektedir.
 
 ---
 
 ## Bağlantılar
-https://www.kaggle.com/code/gizemetinalar/notebook56725a62e7,
-https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+
+- Kaggle Notebook: https://www.kaggle.com/code/gizemetinalar/notebook56725a62e7  
+- Kaggle Olist Veri Seti: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
 
 ---
 
+## Problem Tanımı
 
-## 🧠 Problem Statement
+Sipariş, ürün ve müşteri bilgilerinden yola çıkarak bir değerlendirme puanının 5 yıldız olup olmayacağı tahmin edilebilir mi?
 
-Can we predict whether a product review will be 5 stars based on order, product, and customer data?
-
-- **Target:** `is_five_star` (1 if review_score == 5, otherwise 0)
-- **Task Type:** Binary Classification
-
----
-
-## 📂 Dataset Used
-
-We merged the following CSVs from the dataset:
-
-- `olist_orders_dataset.csv`
-- `olist_order_reviews_dataset.csv`
-- `olist_order_items_dataset.csv`
-- `olist_products_dataset.csv`
-
-All were joined on `order_id`.
+- Hedef Değişken: `is_five_star` (eğer `review_score` = 5 ise 1, aksi halde 0)  
+- Problem Türü: İkili sınıflandırma
 
 ---
 
-## 🔍 Exploratory Data Analysis (EDA)
+## Kullanılan Veri Seti
 
-- Distribution of review scores
-- Imbalance in target (`is_five_star`)
-- Relationships between features and the target
+Aşağıdaki CSV dosyaları `order_id` alanı üzerinden birleştirilerek analizde kullanılmıştır:
 
----
-
-## 🧹 Data Preprocessing
-
-- Null value handling
-- Label encoding for categorical features
-- Feature selection
-- Train-test split
+- olist_orders_dataset.csv  
+- olist_order_reviews_dataset.csv  
+- olist_order_items_dataset.csv  
+- olist_products_dataset.csv
 
 ---
 
-## 🤖 Model Used
+## Keşifsel Veri Analizi (EDA)
 
-- **Model:** Decision Tree Classifier
-- **Optimization:** GridSearchCV
-- **Metrics:** Accuracy, Confusion Matrix, Precision, Recall, F1 Score
+- Değerlendirme puanlarının dağılımı incelendi  
+- Hedef değişkendeki (`is_five_star`) sınıf dengesizliği kontrol edildi  
+- Özelliklerle hedef değişken arasındaki ilişkiler analiz edildi
 
 ---
 
-## 🎯 Best Parameters (via GridSearchCV)
+## Veri Ön İşleme
+
+- Gereksiz sütunlar kaldırıldı  
+- Eksik veriler temizlendi  
+- Kategorik veriler sayısal verilere dönüştürüldü  
+- Hedef değişken (`is_five_star`) oluşturuldu  
+- Veriler eğitim ve test seti olarak ayrıldı (80/20 oranında)
+
+---
+
+## Kullanılan Model
+
+- Model: Karar Ağacı (Decision Tree Classifier)  
+- Optimizasyon: GridSearchCV (5 katlı çapraz doğrulama)  
+- Değerlendirme Metrikleri: Doğruluk, Karışıklık Matrisi, Precision, Recall, F1 Skoru
+
+---
+
+## GridSearchCV ile En İyi Parametreler
 
 ```python
-max_depth=10  
-min_samples_split=5  
-criterion='entropy'
-
-##  Gelecekteki Geliştirme Fikirleri
-
--  **Topluluk Modelleri (Ensemble Models) Denenebilir:**  
-  Random Forest veya XGBoost gibi topluluk tabanlı algoritmalar ile modelin genel doğruluğu ve genelleme kapasitesi artırılabilir.
-
--  **Özellik Önem Sıralaması Görselleştirilebilir:**  
-  Modelin hangi sütunlara ne kadar önem verdiği görselleştirilerek yorumlama yapılabilir. Bu sayede sadeleştirme (feature selection) uygulanabilir.
-
-- ⚖ **Veri Dengesizliği İçin SMOTE Uygulanabilir:**  
-  Sınıf dağılımı dengesizse, Synthetic Minority Over-sampling Technique (SMOTE) yöntemi ile veri artırma yapılabilir.
-
--  **Model Arayüz ile Yayınlanabilir (Deploy):**  
-  Streamlit veya Flask gibi frameworkler kullanılarak model bir web arayüzüne entegre edilebilir ve kullanıcıların canlı tahmin yapması sağlanabilir.
-
--  **Gözetimsiz Öğrenme Yöntemleri Eklenebilir:**  
-  Bonus olarak, k-means gibi gözetimsiz algoritmalar ile müşteri kümelendirme veya ürün segmentasyonu yapılabilir.
-
+max_depth = 10  
+min_samples_split = 5  
+criterion = 'entropy'
