@@ -67,3 +67,20 @@ max_depth=10
 min_samples_split=5  
 criterion='entropy'
 
+##  Gelecekteki Geliştirme Fikirleri
+
+-  **Topluluk Modelleri (Ensemble Models) Denenebilir:**  
+  Random Forest veya XGBoost gibi topluluk tabanlı algoritmalar ile modelin genel doğruluğu ve genelleme kapasitesi artırılabilir.
+
+-  **Özellik Önem Sıralaması Görselleştirilebilir:**  
+  Modelin hangi sütunlara ne kadar önem verdiği görselleştirilerek yorumlama yapılabilir. Bu sayede sadeleştirme (feature selection) uygulanabilir.
+
+- ⚖ **Veri Dengesizliği İçin SMOTE Uygulanabilir:**  
+  Sınıf dağılımı dengesizse, Synthetic Minority Over-sampling Technique (SMOTE) yöntemi ile veri artırma yapılabilir.
+
+-  **Model Arayüz ile Yayınlanabilir (Deploy):**  
+  Streamlit veya Flask gibi frameworkler kullanılarak model bir web arayüzüne entegre edilebilir ve kullanıcıların canlı tahmin yapması sağlanabilir.
+
+-  **Gözetimsiz Öğrenme Yöntemleri Eklenebilir:**  
+  Bonus olarak, k-means gibi gözetimsiz algoritmalar ile müşteri kümelendirme veya ürün segmentasyonu yapılabilir.
+
